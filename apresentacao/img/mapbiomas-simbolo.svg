@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="MapBiomas">
+<title>MapBiomas</title>
+
+
+<polygon points="47.5,0 70,22.5 47.5,45 25,22.5" fill="#75C7E0"></polygon>
+<polygon points="47.5,0 70,22.5 47.5,45" fill="#62A5BB"></polygon>
+
+<polygon points="22.5,25 45,47.5 22.5,70 0,47.5" fill="#F7963F"></polygon>
+<polygon points="0,47.5 45,47.5 22.5,70" fill="#E18837"></polygon>
+
+<polygon points="72.5,25 95,47.5 72.5,70 50,47.5" fill="#DCDB77"></polygon>
+<polygon points="72.5,25 95,47.5 72.5,70" fill="#C5C56C"></polygon>
+
+<polygon points="47.5,50 70,72.5 47.5,95 25,72.5" fill="#84CAA0"></polygon>
+<polygon points="25,72.5 70,72.5 47.5,95" fill="#77B893"></polygon>
+</svg>

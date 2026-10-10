@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piloto TerraHidro nível 9 — apresentação</title>
+<link rel="icon" href="img/mapbiomas-simbolo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --fundo: #0c0c0c; --barra: #b8b9bb; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--fundo); overflow: hidden; font-family: 'Open Sans', Arial, sans-serif; }
+#palco { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: 0 0; }
+#palco > section { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; display: none !important; }
+#palco > section.ativo { display: var(--d) !important; }
+section p, section h1, section h2, section h3 { margin: 0; }
+section a { color: inherit; }
+section aside { display: none; }
+section table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; }
+section th, section td { padding: 20px 32px; }
+section td { border-top: 1px solid #d2d3d4; }
+#barra { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 16px; font: 13px/1.4 'Open Sans', Arial, sans-serif; color: var(--barra); opacity: 0; transition: opacity .2s; }
+body:hover #barra, #barra:focus-within { opacity: 1; }
+#barra a { color: var(--barra); }
+#barra button { background: none; border: 0; color: var(--barra); font: inherit; cursor: pointer; padding: 4px 8px; }
+@media print {
+  html, body { overflow: visible; height: auto; background: #fff; }
+  @page { size: 1920px 1080px; margin: 0; }
+  #palco { position: static; transform: none !important; width: auto; height: auto; }
+  #palco > section { position: relative; display: var(--d) !important; break-after: page; }
+  #barra { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="palco">
+<section id="cover" data-transition="fade" style="background:#15292f;color:#ffffff;font-family:'Open Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+<img src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;left:1500px;top:60px;width:1150px;height:1150px;transform:rotate(-17deg);opacity:0.9">
+<div style="display:flex;flex-direction:column;gap:28px">
+<img src="img/mapbiomas-brasil-lockup-negativo.svg" alt="MapBiomas Brasil" style="height:112px;width:auto;align-self:flex-start">
+<p style="font-size:28px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#94d5e9">Amazônia 3D · TerraHidro</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px;max-width:1080px">
+<h1 style="font-size:104px;font-weight:700;line-height:1.08;letter-spacing:-2px;color:#ffffff">A rede de drenagem vista a 0,5 m</h1>
+</div>
+<p style="font-size:28px;color:#94d5e9">7 de outubro de 2026</p>
+<aside>Apresentação do piloto TerraHidro sobre o MDT LiDAR de 0,5 m da Amazônia 3D. Foco: o que a resolução de 0,5 m refina em relação à cartografia disponível (FBDS, IBGE, HydroBASINS, ANA) e o impacto disso para APP e para a delimitação de bacias. Tudo o que está aqui vem do relatório do piloto.</aside>
+</section>
+<section id="area" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:grid;grid-template-columns:1fr 1040px;gap:64px;align-items:start">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">2 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Área de estudo</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Oito bacias no corredor da <span style="white-space:nowrap">BR-319</span></h2>
+<p style="font-size:28px;line-height:1.4;color:#414243">Bacias HydroBASINS nível 9 no LiDAR da Amazônia 3D, sul do Amazonas.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:20px;background:#f1f2f2;padding:8px 24px;border-radius:8px;width:500px">
+<p style="font-size:64px;line-height:1;font-weight:700;color:#15292f;width:96px;white-space:nowrap">54</p>
+<p style="font-size:24px;line-height:1.3;color:#414243">tocam o LiDAR</p>
+</div>
+<div style="display:flex;align-items:center;gap:20px;background:#d5f0f8;padding:8px 24px;border-radius:8px;width:440px">
+<p style="font-size:64px;line-height:1;font-weight:700;color:#15292f;width:96px;white-space:nowrap">17</p>
+<p style="font-size:24px;line-height:1.3;color:#2c515d">com ≥ 95% de LiDAR</p>
+</div>
+<div style="display:flex;align-items:center;gap:20px;background:#94d5e9;padding:8px 24px;border-radius:8px;width:380px">
+<p style="font-size:64px;line-height:1;font-weight:700;color:#15292f;width:96px;white-space:nowrap">8</p>
+<p style="font-size:24px;line-height:1.3;color:#15292f">fechadas</p>
+</div>
+<div style="display:flex;align-items:center;gap:20px;background:#43798a;padding:8px 24px;border-radius:8px;width:320px">
+<p style="font-size:64px;line-height:1;font-weight:700;color:#ffffff;width:96px;white-space:nowrap">7</p>
+<p style="font-size:24px;line-height:1.3;color:#ffffff">processadas</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#414243;width:500px">A 8ª não rodou por falta de RAM: precisa de ~65 GB, e a máquina do piloto tem 31 GB. Vai para uma VM de 128 GB.</p>
+</div>
+<img src="img/localizacao.png" alt="Mapa da cobertura LiDAR com as oito bacias do piloto, a BR-319, o contexto regional e a legenda" style="width:1040px;height:756px;object-fit:contain;border:1px solid #d2d3d4;border-radius:12px">
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Fonte: inventário dos 9.213 tiles do MDT LiDAR; HydroBASINS nível 9; BR-319 do IBGE BC250</p>
+<aside>A unidade de trabalho é a bacia, não o tile: a área de contribuição e a ordem de Strahler dependem de tudo o que drena para ela. Por isso dois critérios: cobertura LiDAR de pelo menos 95% e bacia fechada (UP_AREA ≤ 1,02 × SUB_AREA). Processadas da menor para a maior, para calibrar memória e tempo.</aside>
+</section>
+<section id="refino" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">3 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">O que o piloto mostra</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">A rede LiDAR contém a hidrografia mapeada e enxerga 24 vezes mais canais</h2>
+</div>
+<div style="display:flex;flex-direction:column;background:#ffffff;border:1px solid #d2d3d4;border-radius:12px;overflow:hidden">
+<div style="background:#f1f2f2;padding:20px 32px;border-bottom:1px solid #d2d3d4"><h3 style="font-size:28px;font-weight:700;color:#262728">7 bacias · 1.298 km² · threshold de 5.000 células</h3></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1px;background:#d2d3d4">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">FBDS na rede</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">92,5%</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">dos rios da FBDS a até 30 m de um canal LiDAR</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">IBGE na rede</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">99,7%</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">dos trechos do IBGE a até 60 m</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">Densidade</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">25,7</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">km/km² na rede LiDAR, contra 1,07 da FBDS</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">Divisor</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">3 de 7</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">bacias em que o divisor do HydroBASINS se confirma</p>
+</div>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#414243">O ganho é de detalhe: cabeceiras, canais efêmeros e divisores que a cartografia não resolve. O desafio passa a ser decidir quais desses canais contam como curso d’água.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Médias ponderadas, dentro dos polígonos das bacias · relatório, seções IBGE e FBDS e Bacias D8</p>
+<aside>Mensagem central. A rede LiDAR reproduz quase toda a hidrografia mapeada (92,5% da FBDS a 30 m, 99,7% do IBGE a 60 m), mas é cerca de 24 vezes mais densa que a FBDS. Só 8,8% da rede LiDAR fica a 30 m da FBDS: o resto são cabeceiras e canais efêmeros. E o divisor do HydroBASINS só se confirma nas bacias 2, 6 e 7.</aside>
+</section>
+<section id="fluxo" data-transition="fade" style="overflow:hidden;background:#f1f2f2;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">4 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Como foi produzido</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Do MDT de 0,5 m a uma rede com 26 atributos por trecho</h2>
+</div>
+<div style="display:flex;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;padding:32px 28px;border-radius:8px;border:1px solid #d2d3d4">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Etapa 1</p>
+<h3 style="font-size:32px;font-weight:700;color:#15292f">MDT</h3>
+<p style="font-size:24px;line-height:1.4;color:#5b5d5f">Mosaico dos tiles, recorte na bacia + 1 km</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;padding:32px 28px;border-radius:8px;border:1px solid #d2d3d4">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Etapa 2</p>
+<h3 style="font-size:32px;font-weight:700;color:#15292f">Depressões</h3>
+<p style="font-size:24px;line-height:1.4;color:#5b5d5f">removepits: o MDT passa a escoar</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;padding:32px 28px;border-radius:8px;border:1px solid #d2d3d4">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Etapa 3</p>
+<h3 style="font-size:32px;font-weight:700;color:#15292f">Fluxo</h3>
+<p style="font-size:24px;line-height:1.4;color:#5b5d5f">Direção D8 e área acumulada</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;padding:32px 28px;border-radius:8px;border:1px solid #d2d3d4">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Etapa 4</p>
+<h3 style="font-size:32px;font-weight:700;color:#15292f">Drenagem</h3>
+<p style="font-size:24px;line-height:1.4;color:#5b5d5f">Canal onde drenam 5.000 células (1.250 m²)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;padding:32px 28px;border-radius:8px;border:1px solid #d2d3d4">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Etapa 5</p>
+<h3 style="font-size:32px;font-weight:700;color:#15292f">Trechos</h3>
+<p style="font-size:24px;line-height:1.4;color:#5b5d5f">Segmentos, minibacias e HAND</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#f8fdfe;padding:32px 28px;border-radius:8px;border:1px solid #62a5bb">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Etapa 6</p>
+<h3 style="font-size:32px;font-weight:700;color:#15292f">Vetor</h3>
+<p style="font-size:24px;line-height:1.4;color:#5b5d5f">Strahler, topologia, declividade, qualidade</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#414243">823.642 trechos e 47.381 km de canais nas 7 bacias, publicados por bacia no bucket e no Earth Engine, nos thresholds de 5.000 e 7.500 células.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">TerraHidro 5.1.1 sobre TerraLib 5.7.3 · vetorização própria (scripts/drenagem_vetorial.py)</p>
+<aside>Seis estágios por bacia, uma bacia por vez. O TerraHidro gera os rasters; a vetorização própria transforma cada trecho entre confluências numa linha com 26 atributos: ordem de Strahler e Shreve, para onde escoa, comprimento, cota, declividade, área de contribuição e marcadores de qualidade (in_bacia, trunc).</aside>
+</section>
+<section id="densidade" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">5 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Refino 1 · densidade de drenagem</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Aparecem as cabeceiras que a cartografia não mapeia</h2>
+<p style="font-size:28px;line-height:1.4;color:#414243">A rede LiDAR inteira tem <b>24 vezes</b> o comprimento de canal da FBDS. A partir da ordem 3, ainda <b>6,5 vezes</b>. Só no corte ≥ 6 a densidade chega à da FBDS.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;color:#76787a">km de canal por km² de bacia · 7 bacias, 1.298 km² · threshold de 5.000 células</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">LiDAR, todas as ordens</p><div style="display:flex;align-items:center;gap:16px"><div style="width:1120px;height:36px;background:#94d5e9;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">25,7</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">LiDAR, Strahler ≥ 2</p><div style="display:flex;align-items:center;gap:16px"><div style="width:558px;height:36px;background:#94d5e9;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">12,8</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap; font-weight:700;color:#15292f">LiDAR, Strahler ≥ 3</p><div style="display:flex;align-items:center;gap:16px"><div style="width:303px;height:36px;background:#43798a;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">7,0</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">LiDAR, Strahler ≥ 4</p><div style="display:flex;align-items:center;gap:16px"><div style="width:161px;height:36px;background:#94d5e9;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">3,7</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">LiDAR, Strahler ≥ 5</p><div style="display:flex;align-items:center;gap:16px"><div style="width:84px;height:36px;background:#94d5e9;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">1,9</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">LiDAR, Strahler ≥ 6</p><div style="display:flex;align-items:center;gap:16px"><div style="width:43px;height:36px;background:#94d5e9;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">1,0</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">LiDAR, Strahler ≥ 7</p><div style="display:flex;align-items:center;gap:16px"><div style="width:22px;height:36px;background:#94d5e9;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">0,5</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;margin-top:14px;padding-top:26px;border-top:1px solid #d2d3d4;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">FBDS 1:25.000</p><div style="display:flex;align-items:center;gap:16px"><div style="width:47px;height:36px;background:#5b5d5f;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">1,1</p></div></div>
+<div style="display:flex;align-items:center;gap:32px;"><p style="font-size:24px;width:360px;flex:none;color:#262728;white-space:nowrap;">IBGE 1:250.000</p><div style="display:flex;align-items:center;gap:16px"><div style="width:9px;height:36px;background:#959698;border-radius:2px"></div><p style="font-size:28px;font-weight:700;color:#15292f;white-space:nowrap">0,2</p></div></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Relatório, Figura 4 e Tabela 8 · FBDS: rios simples; IBGE: trechos de drenagem do BC250 · dentro dos polígonos das bacias</p>
+<aside>Densidade de drenagem dentro dos polígonos, threshold de 5.000 células: LiDAR 25,7 km/km² com todas as ordens, 12,8 a partir da ordem 2, 7,0 a partir da 3, 3,7 da 4, 1,9 da 5, 1,0 da 6 e 0,5 da 7. FBDS 1,07 e IBGE 0,20. A densidade da FBDS só é alcançada no corte a partir da ordem 6, mas mesmo assim só parte da FBDS fica a 30 m desses canais: o LiDAR não reproduz a FBDS por um corte de ordem.</aside>
+</section>
+<section id="concordancia" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">6 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Refino 2 · concordância · mini plataforma do relatório</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">A rede LiDAR passa por quase toda a hidrografia mapeada</h2>
+</div>
+<div style="display:grid;grid-template-columns:1290px 1fr;gap:32px;align-items:start">
+<img src="img/mini_plataforma.png" alt="Mini plataforma do relatório mostrando a rede LiDAR da bacia 6 colorida por ordem de Strahler, com a lista de bacias, a legenda e o painel da bacia" style="width:1290px;height:694px;object-fit:contain;border:1px solid #d2d3d4;border-radius:12px">
+<div style="display:flex;flex-direction:column;background:#ffffff;border:1px solid #d2d3d4;border-radius:12px;overflow:hidden">
+<div style="background:#f1f2f2;padding:16px 24px;border-bottom:1px solid #d2d3d4"><h3 style="font-size:28px;font-weight:700;color:#262728">Rede inteira</h3></div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#d2d3d4">
+<div style="display:flex;flex-direction:column;gap:4px;background:#ffffff;padding:20px 24px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">FBDS a ≤ 30 m</p>
+<p style="font-size:64px;line-height:1.1;font-weight:700;color:#0c0c0c">92,5%</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;background:#ffffff;padding:20px 24px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">IBGE a ≤ 60 m</p>
+<p style="font-size:64px;line-height:1.1;font-weight:700;color:#0c0c0c">99,7%</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;background:#ffffff;padding:20px 24px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">Canais novos</p>
+<p style="font-size:64px;line-height:1.1;font-weight:700;color:#0c0c0c;white-space:nowrap">30,5 mil</p>
+<p style="font-size:24px;line-height:1.35;color:#76787a">km de canais que a FBDS não mapeia; ela tem 1,4 mil km nas mesmas bacias</p>
+</div>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Mini plataforma do relatório (bacia 6, ordens 3 a 9): bacias, FBDS, IBGE, ANA, bacia D8 e atributos de cada trecho</p>
+<aside>A mini plataforma do relatório é a forma de ver o refino: cada bacia com a rede LiDAR colorida por ordem de Strahler, a FBDS, o IBGE e as ottobacias da ANA para a região inteira, a bacia D8, e os atributos de cada trecho num clique. Os números ao lado vêm da comparação em grade de 5 m: a rede LiDAR contém 92,5% da FBDS e 99,7% do IBGE. Além disso, traça 30,5 mil km de canais que a FBDS não tem (a FBDS soma 1,4 mil km nas 7 bacias): cabeceiras e canais efêmeros. Em proporção, só 8,8% da rede LiDAR fica a 30 m da FBDS, número que mede o quanto a rede é maior, não erro.</aside>
+</section>
+<section id="divisor" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">7 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Refino 3 · divisor de bacias</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">O LiDAR redesenha as bacias: o divisor do HydroBASINS vale em 3 de 7</h2>
+</div>
+<div style="display:grid;grid-template-columns:1080px 1fr;gap:56px;align-items:start">
+<img src="img/bacias_d8.png" alt="Sete mapas em grade de 2 linhas e 4 colunas, com a legenda na oitava célula: contorno HydroBASINS em preto, bacia D8 em azul e ottobacia da ANA em laranja tracejado" style="width:1080px;height:648px;object-fit:contain">
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;line-height:1.45;color:#414243"><b>Bacia D8:</b> tudo o que drena para o exutório da maior rede LiDAR, refeita pelo próprio MDT.</p>
+<p style="font-size:28px;line-height:1.45;color:#414243">Coincide nas bacias <b>2, 6 e 7</b> (≥ 90% do polígono). Na <b>1</b> e na <b>5</b>, só 38% e 25%: o polígono reúne redes que saem por pontos diferentes.</p>
+<p style="font-size:28px;line-height:1.45;color:#414243">As ottobacias nível 7 da <b>ANA</b> também não coincidem: IoU de 0,21 a 0,59, exceto a bacia 2 (0,83).</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Relatório, Figura 3 e Tabela 4 · HydroBASINS nível 9 (MDE de 15″) · ANA BHO 6 (1:100.000)</p>
+<aside>A bacia D8 é a união das minibacias de todos os trechos da maior rede: tudo o que escoa até o exutório dela. Onde cobre 90% ou mais do polígono, o divisor HydroBASINS se confirma. Nas bacias 1, 3, 4 e 5, o polígono mistura redes. Nem o HydroBASINS nem a BHO 6 da ANA reproduzem os divisores do LiDAR de 0,5 m: o LiDAR não confirma melhor um contorno que o outro.</aside>
+</section>
+<section id="app" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">8 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Impacto · APP de 30 m</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">A área de APP depende de quais canais contam como curso d’água</h2>
+</div>
+<div style="display:flex;flex-direction:column;background:#ffffff;border:1px solid #d2d3d4;border-radius:12px;overflow:hidden">
+<div style="display:flex;align-items:center;gap:16px;background:#f1f2f2;padding:20px 32px;border-bottom:1px solid #d2d3d4"><h3 style="font-size:28px;font-weight:700;color:#262728">APP nas 7 bacias (1.298 km²)</h3><p style="font-size:24px;font-weight:700;color:#6b4203;background:#fff4be;padding:2px 18px;border-radius:100px">estimativa a partir do eixo</p></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#d2d3d4">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:36px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">LiDAR, Strahler ≥ 3</p>
+<p style="font-size:64px;font-weight:700;line-height:1.1;color:#0c0c0c">30,9%</p>
+<p style="font-size:24px;color:#76787a">400,7 km² · faixa de 30 m</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:36px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">FBDS 1:25.000</p>
+<p style="font-size:64px;font-weight:700;line-height:1.1;color:#0c0c0c">6,7%</p>
+<p style="font-size:24px;color:#76787a">86,8 km² · APP publicada pela FBDS</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:36px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">IBGE BC250</p>
+<p style="font-size:64px;font-weight:700;line-height:1.1;color:#0c0c0c">1,3%</p>
+<p style="font-size:24px;color:#76787a">17,0 km² · faixa de 30 m calculada</p>
+</div>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#414243">Com a rede inteira, a faixa cobriria 85% das bacias. O Código Florestal protege cursos perenes e intermitentes, não efêmeros: a regra que separa uns dos outros é a decisão de método que define a APP a partir do LiDAR.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">% da área das 7 bacias · relatório, seção APP, Tabela 6</p>
+<aside>A APP LiDAR é a faixa de 30 m em torno dos canais. Com todas as ordens, 85% das bacias; a partir da ordem 3, 30,9%; a partir da 5, 8,6%. A FBDS publica 6,7% e a faixa de 30 m sobre o IBGE dá 1,3%. Limitações: a faixa sai do eixo, não da borda da calha; o threshold não separa efêmeros de intermitentes; nascentes ficaram fora.</aside>
+</section>
+<section id="threshold" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">9 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Impacto · limiar de canal</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Subir o threshold enxuga as cabeceiras, mas não aproxima a rede da cartografia</h2>
+</div>
+<table style="font-size:28px;color:#414243;border:1px solid #d2d3d4;border-radius:12px">
+<tr style="background:#f1f2f2"><th style="width:36%;text-align:left;color:#76787a;font-weight:700">ORDENS 3 A 9</th><th style="width:16%;text-align:right;color:#76787a;font-weight:700">5.000 CÉLULAS</th><th style="width:16%;text-align:right;color:#76787a;font-weight:700">7.500 CÉLULAS</th><th style="width:16%;text-align:right;color:#76787a;font-weight:700">FBDS</th><th style="width:16%;text-align:right;color:#76787a;font-weight:700">IBGE</th></tr>
+<tr><td>Área mínima para virar canal</td><td style="text-align:right">1.250 m²</td><td style="text-align:right">1.875 m²</td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
+<tr><td>Densidade de drenagem</td><td style="text-align:right">7,0 km/km²</td><td style="text-align:right;color:#0c0c0c">5,8 km/km²</td><td style="text-align:right">1,1 km/km²</td><td style="text-align:right">0,2 km/km²</td></tr>
+<tr><td>APP / área das bacias</td><td style="text-align:right">30,9%</td><td style="text-align:right;color:#0c0c0c">25,9%</td><td style="text-align:right">6,7%</td><td style="text-align:right">1,3%</td></tr>
+</table>
+<p style="font-size:28px;line-height:1.45;color:#414243">Na rede inteira, o limiar maior tira <b>36% dos trechos</b> e <b>20% do comprimento</b>, e a estrutura fica: mesmos exutórios, mesmas bacias D8. O que decide quanto da rede conta como curso d’água é o corte por ordem, ou outra regra, e não o threshold.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Relatório, seção 5.000 × 7.500, Tabelas 7 e 8 · dentro dos polígonos das 7 bacias</p>
+<aside>Os dois limiares rodaram com os mesmos rasters de base; só drainage, segments, minibasins, HAND e a vetorização foram refeitos. De 5.000 para 7.500 células: 823.642 para 525.599 trechos, 47.381 para 37.969 km. Com as ordens 3 a 9, a densidade cai de 7,0 para 5,8 km/km², ainda 5,5 vezes a FBDS e 29 vezes o IBGE (0,20 km/km²; APP de 30 m do IBGE: 1,3%).</aside>
+</section>
+<section id="custo" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">10 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">O custo do detalhe</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Processar a 0,5 m é pesado, mas previsível</h2>
+</div>
+<div style="display:flex;flex-direction:column;background:#ffffff;border:1px solid #d2d3d4;border-radius:12px;overflow:hidden">
+<div style="display:flex;align-items:center;gap:16px;background:#f1f2f2;padding:20px 32px;border-bottom:1px solid #d2d3d4"><h3 style="font-size:28px;font-weight:700;color:#262728">Processamento das 7 bacias</h3><p style="font-size:24px;font-weight:700;color:#355140;background:#ceead9;padding:2px 18px;border-radius:100px">7 de 8 concluídas</p></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1px;background:#d2d3d4">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">Células</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">12,19 bi</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">a 0,5 m, nas 7 bacias</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">Tempo</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">14 h 37</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">de 1 h 45 a 3 h 16 por bacia</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">Memória</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">~10 B</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">de RAM por célula; 26 GiB na maior</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">removepits</p>
+<p style="font-size:64px;font-weight:700;color:#0c0c0c;white-space:nowrap">74%</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">do tempo do TerraHidro, num núcleo só</p>
+</div>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#414243">A memória cresce em linha com o número de células, então dá para estimar cada bacia antes de rodar. A bacia 8 (557 km², 6,36 bi de células) pede ~65 GB e vai para uma VM; cerca de 40% do tempo é transferência com o bucket.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Máquina do piloto: 12 núcleos, 31 GiB · relatório, Parte 3 (Tempos, Recursos, Custo)</p>
+<aside>Custo do refino. RAM estável de 9 a 10 bytes por célula, o que permite prever cada bacia. O removepits é o gargalo (três quartos do tempo do TerraHidro, e roda num só núcleo). A bacia 8 não coube na máquina do piloto.</aside>
+</section>
+<section id="infra" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">11 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Infraestrutura · RAM por bacia</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Antes de rodar, já se sabe em que máquina cada bacia cabe</h2>
+</div>
+<div style="display:grid;grid-template-columns:900px 1fr;gap:40px;align-items:start">
+<img src="img/infra_ram.png" alt="Dois mapas lado a lado: RAM estimada por bacia HydroBASINS nível 9 (55) e por ottobacia ANA nível 7 (92) que toca a cobertura LiDAR, em faixas de até 8 GB a 512 GB" style="width:900px;height:637px;object-fit:contain">
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;background:#ffffff;border:1px solid #d2d3d4;border-radius:12px;overflow:hidden">
+<div style="background:#f1f2f2;padding:20px 32px;border-bottom:1px solid #d2d3d4"><h3 style="font-size:28px;font-weight:700;color:#262728">Cabem na estação local (28 GB)</h3></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#d2d3d4">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:28px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">HydroBASINS 9</p>
+<p style="font-size:64px;line-height:1.1;font-weight:700;color:#0c0c0c;white-space:nowrap">34 de 55</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">bacias; a maior pede 274&nbsp;GB</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;padding:28px 32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5b5d5f">ANA nível 7</p>
+<p style="font-size:64px;line-height:1.1;font-weight:700;color:#0c0c0c;white-space:nowrap">71 de 92</p>
+<p style="font-size:24px;line-height:1.4;color:#76787a">ottobacias; a maior pede 217&nbsp;GB</p>
+</div>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#414243">Com <b>11 bytes por célula</b> (recorte com 1 km de borda, a 0,5 m), a RAM sai da área. As ottobacias da ANA, menores, cabem mais na estação local; as que passam de 28 GB vão para VMs de 128 a 512 GB.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Relatório, seção Infraestrutura, Figuras 8 e 9 · todas as unidades que tocam a cobertura LiDAR</p>
+<aside>Levantamento de RAM para todas as bacias HydroBASINS nível 9 (55) e todas as ottobacias ANA nível 7 (92) que tocam a cobertura LiDAR, com a calibração do piloto: 11 bytes por célula do recorte (bacia + 1 km, a 0,5 m). Cabem na estação local (28 GB): 34 de 55 HydroBASINS (mediana 19,3 GB) e 71 de 92 ottobacias (mediana 10,4 GB); entre as que têm pelo menos 95% de LiDAR, 14 de 17 e 32 de 36. A maior HydroBASINS pede 274 GB e a maior ottobacia 217 GB. Ressalva: a estimativa vale para a unidade sozinha; uma interbacia precisa ser processada com as unidades de montante.</aside>
+</section>
+<section id="proximos" data-transition="fade" style="overflow:hidden;background:#ffffff;color:#262728;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.09">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#43798a">12 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#43798a">Próximos passos</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#15292f">Transformar o detalhe em produto para APP e para bacias</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:14px;background:#ffffff;padding:36px 40px;border:1px solid #d2d3d4;border-radius:8px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Frente 1</p>
+<h3 style="font-size:32px;font-weight:700;line-height:1.15;color:#0c0c0c">Definir o que é curso d’água</h3>
+<p style="font-size:28px;line-height:1.4;color:#5b5d5f">O critério que transforma a rede LiDAR em APP.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#ffffff;padding:36px 40px;border:1px solid #d2d3d4;border-radius:8px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Frente 2</p>
+<h3 style="font-size:32px;font-weight:700;line-height:1.15;color:#0c0c0c">Fechar o piloto</h3>
+<p style="font-size:28px;line-height:1.4;color:#5b5d5f">Completar as 8 bacias e consolidar a qualidade dos produtos.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#ffffff;padding:36px 40px;border:1px solid #d2d3d4;border-radius:8px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Frente 3</p>
+<h3 style="font-size:32px;font-weight:700;line-height:1.15;color:#0c0c0c">Escolher a unidade de bacia</h3>
+<p style="font-size:28px;line-height:1.4;color:#5b5d5f">HydroBASINS, bacia D8 do LiDAR ou ottobacias da ANA.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;background:#ffffff;padding:36px 40px;border:1px solid #d2d3d4;border-radius:8px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#43798a">Frente 4</p>
+<h3 style="font-size:32px;font-weight:700;line-height:1.15;color:#0c0c0c">Escalar</h3>
+<p style="font-size:28px;line-height:1.4;color:#5b5d5f">Levar o processamento para toda a cobertura LiDAR.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1480px;font-size:24px;color:#76787a">Relatório, seções APP, Achados e Próximos passos</p>
+<aside>Quatro frentes, do relatório. 1) Curso d’água: decidir o corte (ordem, área de contribuição) que separa efêmeros de intermitentes, validado em campo ou com imagem, e estimar a largura dos rios pelo MDT para aplicar a faixa a partir das margens. 2) Fechar o piloto: processar a bacia 8 numa VM de 128 GB e gerar o HAND sobre o MDT original. 3) Unidade de bacia: o divisor do HydroBASINS só se confirma em 3 de 7; a BHO 6 da ANA já está no Earth Engine para a avaliação (16 ottobacias nível 7 cabem na máquina atual). 4) Escalar para a cobertura LiDAR da Amazônia 3D.</aside>
+</section>
+<section id="links" data-transition="fade" style="overflow:hidden;background:#15292f;color:#ffffff;font-family:'Open Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<img data-marca src="img/mapbiomas-simbolo.svg" alt="" aria-hidden="true" style="position:absolute;right:-170px;bottom:-230px;width:560px;height:560px;transform:rotate(-17deg);opacity:0.14">
+<p data-marca style="position:absolute;right:128px;bottom:64px;font-size:24px;font-weight:700;color:#94d5e9">13 / 13</p>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:26px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#94d5e9">Onde ver os resultados</p>
+<h2 style="font-size:56px;font-weight:700;line-height:1.12;color:#ffffff">Relatório completo, mapa interativo e plataforma no Earth Engine</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94d5e9">Relatório do piloto</p>
+<p style="font-size:28px;color:#ffffff"><a href="https://joaosiqueira.github.io/mapbiomas-terrahidro-report/">joaosiqueira.github.io/mapbiomas-terrahidro-report</a></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94d5e9">Plataforma no Earth Engine (script)</p>
+<p style="font-size:28px;color:#ffffff"><a href="https://github.com/joaosiqueira/mapbiomas-terrahidro-report/blob/gh-pages/gee/plataforma_piloto_nivel9.js">github.com/joaosiqueira/mapbiomas-terrahidro-report · gee/plataforma_piloto_nivel9.js</a></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94d5e9">Dados no Earth Engine</p>
+<p style="font-size:28px;color:#ffffff">projects/nexgenmap/AMAZONIA3D/terrahidro/piloto_nivel9</p>
+</div>
+</div>
+<p style="font-size:28px;color:#94d5e9">MapBiomas · Amazônia 3D · TerraHidro sobre TerraLib 5.7.3 (INPE)</p>
+<aside>O relatório traz todas as tabelas, a mini plataforma com a rede de cada bacia e a hidrografia de referência, e a metodologia completa. A plataforma no Earth Engine mostra a rede em resolução cheia, nos dois thresholds, com FBDS, IBGE, ANA e ortofoto.</aside>
+</section>
+</div>
+<nav id="barra" aria-label="Navegação dos slides">
+  <span><a href="../">Relatório do piloto</a></span>
+  <span><button id="ant" aria-label="Slide anterior">←</button> <span id="num"></span> <button id="prox" aria-label="Próximo slide">→</button></span>
+</nav>
+<script>
+(function () {
+  var palco = document.getElementById('palco'), S = [].slice.call(palco.children), i = 0;
+  // cada slide guarda o display que declarou (flex ou grid) para reaplicar quando ativo
+  S.forEach(function (s) { s.style.setProperty('--d', s.style.display || 'block'); });
+  function ajusta() { var k = Math.min(innerWidth / 1920, innerHeight / 1080);
+    palco.style.transform = 'scale(' + k + ') translate(-50%, -50%)'; }
+  function vai(n) { i = Math.max(0, Math.min(S.length - 1, n));
+    S.forEach(function (s, j) { s.classList.toggle('ativo', j === i); });
+    document.getElementById('num').textContent = (i + 1) + ' / ' + S.length;
+    if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1)); }
+  addEventListener('resize', ajusta);
+  addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].indexOf(e.key) >= 0) { vai(i + 1); e.preventDefault(); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp'].indexOf(e.key) >= 0) { vai(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') vai(0); else if (e.key === 'End') vai(S.length - 1); });
+  palco.addEventListener('click', function (e) { if (e.target.closest('a')) return; vai(i + (e.clientX > innerWidth / 2 ? 1 : -1)); });
+  document.getElementById('ant').onclick = function () { vai(i - 1); };
+  document.getElementById('prox').onclick = function () { vai(i + 1); };
+  addEventListener('hashchange', function () { vai((parseInt(location.hash.slice(1), 10) || 1) - 1); });
+  ajusta(); vai((parseInt(location.hash.slice(1), 10) || 1) - 1);
+})();
+</script>
+</body>
+</html>
